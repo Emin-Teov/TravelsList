@@ -28,7 +28,7 @@ class recordRequest extends FormRequest
             'surname' => 'required|min:3|max:45',
             'brith_date' => 'required',
             'male' => 'required|min:1|max:1',
-            'tel' => 'required|min:2|max:255',
+            'tel' => 'required|min:2|max:10',
             'car' => 'required|min:1|max:11',
             'travel_date' => 'required',
             'count_days' => 'required|min:1|max:25'
