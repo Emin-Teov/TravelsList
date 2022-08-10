@@ -22,7 +22,7 @@
     visibility: hidden;
     font-size: 12px;
     border-radius: 20px;
-    background:linear-gradient(to right, #2737b0, #E040FB);
+    background:linear-gradient(to right, #22295c, #100812);
     color: #fff;
     transition: opacity 1000ms ease-in-out, visibility 1000ms ease-in-out;
     z-index: 2;

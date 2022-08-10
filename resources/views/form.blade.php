@@ -15,9 +15,9 @@
        
         <div class="form-dataset-wrapper">
             <input class="form-line" type="text" required="required" aria-required="true" @if($edit) value="{{$user->name}}" @endif min="3" max="45" name="name" placeholder="name">
-        <span class="input-dataset-attr">
-            Name
-        </span>
+            <span class="input-dataset-attr">
+                Name
+            </span>
         </div>
 
         <div class="form-dataset-wrapper">
