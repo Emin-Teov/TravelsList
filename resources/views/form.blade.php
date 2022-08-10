@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-dataset-wrapper">
-            <input class="form-line" type="tel" required="required" aria-required="true" @if($edit) value="{{$user->mobile}}" @endif min="3" max="255" name="tel" placeholder="phone">
+            <input class="form-line" type="tel" required="required" aria-required="true" @if($edit) value="{{$user->mobile}}" @endif min="2" max="255" name="tel" placeholder="phone">
             <span class="input-dataset-attr">
                 Phone number
             </span>

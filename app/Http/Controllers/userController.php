@@ -8,6 +8,7 @@ use App\Models\users;
 use App\Models\cars;
 use App\Models\regions;
 use App\Models\travels;
+use App\Http\Requests\recordRequest;
 
 class userController extends Controller
 {
@@ -25,13 +26,12 @@ class userController extends Controller
         return view('form', ['edit'=>false, 'cars'=>cars::all(), 'regions'=>regions::all()]);
     }
 
-    public function store(Request $request)
+    public function store(recordRequest $request)
     {
         users::insert(['name'=>$request->name, 'surname'=>$request->surname, 'male'=>$request->male, 'brith_date'=> $request->brith_date, 'mobile'=>$request->tel, 'car'=>$request->car]);
         $getId = users::where(['mobile'=>$request->tel])->first();
         travels::insert(['user_id'=>$getId->id, 'date'=>$request->travel_date, 'region'=>$request->region, 'count_days'=>$request->count_days]);
         return redirect('/');
-        
     }
 
     public function edit($id)
@@ -41,7 +41,7 @@ class userController extends Controller
         return view('form', ['edit'=>true, 'user'=>$getUser, 'travel'=>$getTravel, 'cars'=>cars::all(), 'regions'=>regions::all()]);
     }
 
-    public function update(Request $request, $id)
+    public function update(recordRequest $request, $id)
     {
         users::where('id', $id)->update(['name'=>$request->name, 'surname'=>$request->surname, 'male'=>$request->male, 'brith_date'=> $request->brith_date, 'mobile'=>$request->tel, 'car'=>$request->car]);
         travels::where(['user_id'=>$id])->orderBy('date', 'desc')->update(['date'=>$request->travel_date, 'region'=>$request->region, 'count_days'=>$request->count_days]);
@@ -60,6 +60,5 @@ class userController extends Controller
     {
         users::where('id', $id)->update(['trash'=>1]);
         return redirect('/');
-    
     }
 }
